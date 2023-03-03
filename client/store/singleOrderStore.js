@@ -34,7 +34,7 @@ export const updateSingleOrder = (order, history) => {
         await axios.put(`/api/orders/${order.id}`, order);
         const { data: orderData } = await axios.get(`/api/orders/${order.id}`);
         dispatch(_updateSingleOrder(orderData));
-        history.push(`/orders/${order.id}`)
+        // history.push(`/orders/${order.id}`)
       }
      catch (error) {
       console.log("ORDER", order)

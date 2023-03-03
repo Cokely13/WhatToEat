@@ -37,7 +37,7 @@ export const createOrder = (order, history) => {
   return async (dispatch) => {
     const { data: created } = await Axios.post("/api/orders", order);
     dispatch(_createOrder(created));
-    history.push("/orders");
+    // history.push("/orders");
   };
 };
 
@@ -45,7 +45,7 @@ export const deleteOrder = (id, history) => {
   return async (dispatch) => {
     const { data: order } = await Axios.delete(`/api/orders/${id}`);
     dispatch(_deleteOrder(order));
-    history.push("/orders");
+    // history.push("/orders");
   };
 };
 

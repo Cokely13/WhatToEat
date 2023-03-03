@@ -4,7 +4,9 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
+    const averageRating = 2 + 3
     const foods = await Food.findAll({include: Order})
+    foods.averageRating = averageRating
     res.json(foods)
   } catch (err) {
     next(err)
@@ -14,7 +16,9 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const foodId = req.params.id
+    const averageRating = 2 + 2
     const food = await Food.findByPk(req.params.id, {include: Order });
+    food.averageRating = averageRating
     // , where: {
     //   userId: req.params.id
     // }
