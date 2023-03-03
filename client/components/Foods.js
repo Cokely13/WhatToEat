@@ -13,21 +13,25 @@ function Foods() {
     dispatch(fetchFoods())
   }, [])
 
-  const type = foods.map((({ type }) => type))
-  const pick = Math.floor(Math.random()*type.length)
+  // const type = foods.map((({ type }) => type))
+  // const pick = Math.floor(Math.random()*type.length)
   // const pick = 1
 
   console.log("foods", foods)
-  console.log("types", pick)
+  // console.log("types", pick)
   return (
     <div>
     <div>Foods</div>
     {foods? foods.map((food) => {
       return (
-        <div key={food.id}>{food.type}</div>
+      <div key={food.id}>
+        <div >{food.type}</div>
+        <div> Average: {food.averageRating}</div>
+        <div> Count: {food.count}</div>
+        </div>
       )
     }) : <div></div>}
-    <div>PICK: {pick}</div>
+    {/* <div>PICK: {pick}</div>
     { (pick <= 1 && pick >= 0 )  ? <div> {type[0]}</div> : <div> 1
     </div>}
     {(pick <= 2 && pick > 1 ) ? <div> {type[1]}</div> : <div> 2
@@ -37,7 +41,7 @@ function Foods() {
     {(pick <= 4 && pick > 3 ) ? <div> {type[3]}</div> : <div> 4
     </div>}
     { (pick <= 5 && pick > 4 ) ? <div> {type[4]}</div> : <div> 5
-    </div>}
+    </div>} */}
     </div>
   )
 }

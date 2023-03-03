@@ -11,8 +11,14 @@ const Food = db.define('food', {
     defaultValue: "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-03/plant-based-food-mc-220323-02-273c7b.jpg"
   },
   averageRating: {
-    type: Sequelize.INTEGER
-  }
+    type: Sequelize.FLOAT,
+    defaultValue: 5
+  },
+  count:
+  {
+    type: Sequelize.INTEGER,
+    defaultValue: 1
+  },
 
 })
 
