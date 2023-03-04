@@ -7,6 +7,7 @@ import {me} from './store'
 import Foods from './components/Foods';
 import AddOrder from './components/AddOrder';
 import Orders from './components/Orders';
+import Selector from './components/Selector';
 
 /**
  * COMPONENT
@@ -25,6 +26,7 @@ class Routes extends Component {
           <Switch>
             <Route exact path="/home" component={Home} />
             <Route exact path="/foods" component={Foods} />
+            <Route exact path="/selector" component={Selector} />
             <Route exact path="/orders" component={Orders} />
             <Route exact path="/orders/add" component={AddOrder} />
             <Redirect to="/home" />

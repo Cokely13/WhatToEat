@@ -22,15 +22,18 @@ function Foods() {
   return (
     <div>
     <div>Foods</div>
+    <div className="row text-center" style={{marginLeft: "auto",marginTop: "15px", marginRight:"auto"}}>
     {foods? foods.map((food) => {
       return (
-      <div key={food.id}>
+      <div className="card border border-5  border-warning rounded" style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }} key={food.id}>
         <div >{food.type}</div>
-        <div> Average: {food.averageRating}</div>
-        <div> Count: {food.count}</div>
+        <div> Average Rating: {food.averageRating}</div>
+        <div> Times Ordered: {food.count}</div>
+        {food.orders[0].date? <div> Last Ordered: {food.orders[0].date}</div>:<div>None</div>}
         </div>
       )
     }) : <div></div>}
+    </div>
     {/* <div>PICK: {pick}</div>
     { (pick <= 1 && pick >= 0 )  ? <div> {type[0]}</div> : <div> 1
     </div>}

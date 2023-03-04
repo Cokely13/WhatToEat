@@ -26,12 +26,12 @@ function Orders() {
   // console.log("types", pick)
   return (
     <div>
-    <div>Foods</div>
+    <div>Orders</div>
     <div className="row text-center" style={{marginLeft: "auto",marginTop: "15px", marginRight:"auto"}}>
     {orders? orders.map((order) => {
       return (
         <div  className="card border border-5  border-warning rounded" style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }} key={order.id}>
-        <div>{order.food.type}</div>
+        {order.food? <div>{order.food.type}</div> : <div></div>}
         <div>Rating: {order.rating}</div>
         <div>Date: {order.date}</div>
         </div>

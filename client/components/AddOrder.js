@@ -57,7 +57,7 @@ function AddOrder() {
     // console.log("HYEE",updateFood.averageRating)
     dispatch(updateSingleFood(updateFood))
     dispatch(createOrder(newOrder))
-    history.push(`/home`)
+    history.push(`/orders`)
   }
 
 
