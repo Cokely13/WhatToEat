@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -43,6 +44,7 @@ function Selector() {
     </div>}
     { (random <= 5 && random > 4 ) ? <div> {type[4]}</div> : <div> 5
     </div>}
+    <Link to={"/orders/add"}>Order</Link>
     </div>
   )
 }
