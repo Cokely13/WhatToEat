@@ -14,36 +14,39 @@ function Selector() {
   useEffect(() => {
     dispatch(fetchFoods())
   }, [])
+  const totalRatings = foods.map((({ averageRating }) => averageRating)).reduce((a, b) => {
+    return a + b;
+  }, 0);
 
   const type = foods.map((({ type }) => type))
-  const pick = Math.floor(Math.random()*type.length)
+  const pick = (Math.random()*totalRatings)
   // const pick = 1
 
-  console.log("foods", foods)
+  console.log("foods", totalRatings)
   // console.log("types", pick)
 
+  // total rating = 30.3/
 
   const handlePick= (event) =>{
     event.preventDefault()
-    setRandom(Math.floor(Math.random()*type.length))
+    setRandom(Math.random()*totalRatings)
     console.log(random)
   }
 
   return (
     <div>
-    <div>Selector</div>
+    <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "50px"}}>Selector</h1>
    <button onClick={handlePick}>Pick Food</button>
     <div>PICK: {random}</div>
-    { (random <= 1 && random >= 0 )  ? <div> {type[0]}</div> : <div> 1
-    </div>}
-    {(random <= 2 && random > 1 ) ? <div> {type[1]}</div> : <div> 2
-    </div>}
-    {(random <= 3 && random > 2 )   ? <div> {type[2]}</div> : <div> 3
-    </div>}
-    {(random <= 4 && random > 3 ) ? <div> {type[3]}</div> : <div> 4
-    </div>}
-    { (random <= 5 && random > 4 ) ? <div> {type[4]}</div> : <div> 5
-    </div>}
+    {foods[0]?  (random <= foods[0].averageRating && random >= 0 )  ? <div> {type[0]}</div> : <div> 1</div> : <div>NADA</div> }
+    {foods[1]?  (random <= (foods[0].averageRating + foods[1].averageRating) && random > foods[0].averageRating ) ? <div> {type[1]}</div> : <div> 2
+    </div>: <div>NADA</div> }
+    {foods[2]?(random <= (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating) && random > (foods[0].averageRating + foods[1].averageRating) )   ? <div> {type[2]}</div> : <div> 3
+    </div>: <div>NADA</div> }
+    {foods[3]?(random <= (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating ) && random > (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating) ) ? <div> {type[3]}</div> : <div> 4
+    </div>: <div>NADA</div> }
+    {foods[4]? (random <= (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating + foods[4].averageRating ) && random > (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating ) ) ? <div> {type[4]}</div> : <div> 5
+    </div>: <div>NADA</div> }
     <Link to={"/orders/add"}>Order</Link>
     </div>
   )

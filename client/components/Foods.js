@@ -21,7 +21,7 @@ function Foods() {
   // console.log("types", pick)
   return (
     <div>
-    <div>Foods</div>
+    <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "50px"}}>Foods</h1>
     <div className="row text-center" style={{marginLeft: "auto",marginTop: "15px", marginRight:"auto"}}>
     {foods? foods.map((food) => {
       return (
