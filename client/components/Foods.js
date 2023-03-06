@@ -26,6 +26,7 @@ function Foods() {
     {foods? foods.map((food) => {
       return (
       <div className="card border border-5  border-warning rounded" style={{width:"28rem", marginLeft: "30px", marginRight: "15px",marginBottom: "40px",marginTop: "40px", }} key={food.id}>
+         <img className="card-img-top border border-5 rounded  border-dark" style={{height: "25rem",}}   src={food.image} alt="Card image"/>
         <div >{food.type}</div>
         <div> Average Rating: {food.averageRating}</div>
         <div> Times Ordered: {food.count}</div>

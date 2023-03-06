@@ -6,8 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createOrder } from '../store/allOrdersStore'
 import {updateSingleFood} from '../store/singleFoodStore'
 
-function AddOrder() {
+function AddOrder(type) {
   const dispatch = useDispatch()
+  console.log("TYPE", type)
   const [rating, setRating] = useState();
   const [foodType, setFoodType] = useState();
   const [foodId, setFoodId] = useState();
