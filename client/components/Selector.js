@@ -39,7 +39,7 @@ function Selector() {
     <div>
     <h1 className='card border border-5  border rounded text-center bg-light' style={{width: "50%", marginLeft: "auto",marginRight: "auto", marginTop: "35px", marginBottom: "50px"}}>Selector</h1>
    <button onClick={handlePick}>Pick Food</button>
-    <div>PICK: {random}</div>
+    {/* <div>PICK: {random}</div> */}
     {foods[0]?  (random <= foods[0].averageRating && random >= 0 )  ? <div><div> {type[3]} </div> <button> Order</button> </div>: <div> 1</div> : <div>NADA</div> }
     {foods[1]?  (random <= (foods[0].averageRating + foods[1].averageRating) && random > foods[0].averageRating ) ? <div><div> {type[1]} </div> <button> Order</button> </div>: <div> 2
     </div>: <div>NADA</div> }
@@ -47,7 +47,7 @@ function Selector() {
     </div>: <div>NADA</div> }
     {foods[3]?(random <= (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating ) && random > (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating) ) ?<div><div> {type[3]} </div> <button> Order</button> </div>: <div> 4
     </div> : <div>NADA</div> }
-    {foods[4]? (random <= (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating + foods[4].averageRating ) && random > (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating ) ) ? <div><div> {type[4]} </div> <button> Order</button> </div> : <div> 5
+    {foods[4]? (random <= (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating + foods[4].averageRating ) && random > (foods[0].averageRating + foods[1].averageRating + foods[2].averageRating + foods[3].averageRating ) ) ? <div><div> {type[4]} </div> <AddOrder type={selected}/> </div> : <div> 5
     </div>: <div>NADA</div> }
 
     {random ? <AddOrder type={selected}/> : <div></div>}
